@@ -8,9 +8,11 @@ export class AudioManager {
   async loadSound(track: SoundTrack): Promise<void> {
     try {
       if (this.sounds.has(track.id)) {
+        console.log(`Sound ${track.id} already loaded`);
         return; // Already loaded
       }
 
+      console.log(`Loading sound: ${track.id}`, track.file);
       const { sound } = await Audio.Sound.createAsync(
         track.file,
         {
@@ -20,8 +22,9 @@ export class AudioManager {
       );
 
       this.sounds.set(track.id, sound);
+      console.log(`✓ Sound ${track.id} loaded successfully`);
     } catch (error) {
-      console.error(`Error loading sound ${track.id}:`, error);
+      console.error(`✗ Error loading sound ${track.id}:`, error);
     }
   }
 
