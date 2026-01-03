@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   TouchableOpacity,
   TextInput,
   ScrollView,
   Dimensions,
 } from 'react-native';
+import Text from '../components/Text';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useApp } from '../context/AppContext';
