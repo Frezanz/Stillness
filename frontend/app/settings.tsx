@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -13,6 +13,7 @@ import { useApp } from '../context/AppContext';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Slider from '@react-native-community/slider';
+import { audioManager } from '../utils/audioManager';
 
 export default function SettingsScreen() {
   const {
@@ -25,6 +26,57 @@ export default function SettingsScreen() {
     themes,
   } = useApp();
   const router = useRouter();
+  const [audioLoaded, setAudioLoaded] = useState(false);
+
+  // Load audio when component mounts
+  useEffect(() => {
+    initAudio();
+    return () => {
+      // Don't stop audio when leaving settings
+    };
+  }, []);
+
+  const initAudio = async () => {
+    console.log('Settings: Initializing audio...');
+    try {
+      for (const track of soundTracks) {
+        await audioManager.loadSound(track);
+      }
+      setAudioLoaded(true);
+      console.log('Settings: All sounds loaded');
+    } catch (error) {
+      console.error('Settings: Error loading audio:', error);
+    }
+  };
+
+  // Handle sound track toggle
+  const handleSoundToggle = async (trackId: string, enabled: boolean) => {
+    console.log(`Settings: Toggling ${trackId} to ${enabled}`);
+    updateSoundTrack(trackId, { enabled });
+    
+    if (audioLoaded) {
+      if (enabled) {
+        const track = soundTracks.find(t => t.id === trackId);
+        if (track) {
+          await audioManager.playSound(trackId, track.volume);
+        }
+      } else {
+        await audioManager.stopSound(trackId);
+      }
+    }
+  };
+
+  // Handle volume change
+  const handleVolumeChange = async (trackId: string, volume: number) => {
+    updateSoundTrack(trackId, { volume });
+    
+    if (audioLoaded) {
+      const track = soundTracks.find(t => t.id === trackId);
+      if (track && track.enabled) {
+        await audioManager.setVolume(trackId, volume);
+      }
+    }
+  };
 
   return (
     <LinearGradient colors={currentTheme.gradient} style={styles.container}>
