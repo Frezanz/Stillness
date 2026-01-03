@@ -174,9 +174,7 @@ export default function SettingsScreen() {
                   </View>
                   <Switch
                     value={track.enabled}
-                    onValueChange={(value) =>
-                      updateSoundTrack(track.id, { enabled: value })
-                    }
+                    onValueChange={(value) => handleSoundToggle(track.id, value)}
                     trackColor={{ false: '#ffffff20', true: '#ffffff40' }}
                     thumbColor={track.enabled ? '#ffffff' : '#ffffff80'}
                   />
@@ -187,9 +185,7 @@ export default function SettingsScreen() {
                     <Slider
                       style={styles.slider}
                       value={track.volume}
-                      onValueChange={(value) =>
-                        updateSoundTrack(track.id, { volume: Math.round(value) })
-                      }
+                      onValueChange={(value) => handleVolumeChange(track.id, Math.round(value))}
                       minimumValue={0}
                       maximumValue={100}
                       minimumTrackTintColor="#ffffff"
