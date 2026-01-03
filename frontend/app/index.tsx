@@ -44,20 +44,20 @@ export default function HomeScreen() {
       <SafeAreaView style={styles.safeArea}>
         {/* Header */}
         <View style={styles.header}>
-          <View style={styles.headerLeft} />
+          <View style={styles.headerSpacer} />
           <Text style={styles.title}>STILLNESS</Text>
-          <View style={styles.headerRight}>
+          <View style={styles.headerIcons}>
             <TouchableOpacity
               onPress={() => router.push('/stats')}
               style={styles.iconButton}
             >
-              <Ionicons name="stats-chart" size={24} color="#ffffff" />
+              <Ionicons name="stats-chart" size={20} color="#ffffff" />
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => router.push('/settings')}
               style={styles.iconButton}
             >
-              <Ionicons name="settings-outline" size={24} color="#ffffff" />
+              <Ionicons name="settings-outline" size={20} color="#ffffff" />
             </TouchableOpacity>
           </View>
         </View>
