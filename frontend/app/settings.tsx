@@ -165,6 +165,9 @@ export default function SettingsScreen() {
           {/* Sound Mixer */}
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>AMBIENT SOUNDS</Text>
+            <Text style={styles.infoText}>
+              {audioLoaded ? 'Toggle sounds to test. Audio works best on mobile devices.' : 'Loading sounds...'}
+            </Text>
             {soundTracks.map((track) => (
               <View key={track.id} style={styles.soundTrack}>
                 <View style={styles.soundHeader}>
