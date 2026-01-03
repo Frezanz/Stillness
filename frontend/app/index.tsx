@@ -164,14 +164,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingVertical: 16,
   },
-  headerLeft: {
-    width: 80,
+  headerSpacer: {
+    width: 60,
   },
-  headerRight: {
+  headerIcons: {
     flexDirection: 'row',
-    width: 80,
+    width: 60,
     justifyContent: 'flex-end',
-    gap: 8,
+    gap: 12,
   },
   iconButton: {
     padding: 4,
