@@ -42,32 +42,32 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 
 const THEMES: Theme[] = [
   {
-    id: 'deep-ocean',
-    name: 'Deep Ocean',
-    gradient: ['#1a2332', '#2d3f5f'],
-    circle: ['#4a90e2', '#7ab8ef'],
+    id: 'forest-dawn',
+    name: 'Forest Dawn',
+    gradient: ['#1a2e1a', '#2d4a2d'],
+    circle: ['#6b9b6b', '#a8d5a8'],
     locked: false,
   },
   {
-    id: 'twilight',
-    name: 'Twilight',
-    gradient: ['#1f1535', '#3d2463'],
-    circle: ['#8b5cf6', '#c4b5fd'],
-    locked: false, // Unlocked by default as requested
+    id: 'sunset-glow',
+    name: 'Sunset Glow',
+    gradient: ['#2a1a28', '#4a2d3f'],
+    circle: ['#d98a7f', '#f4c4b8'],
+    locked: false,
   },
   {
-    id: 'warm-earth',
-    name: 'Warm Earth',
-    gradient: ['#2a1810', '#4a2818'],
-    circle: ['#f59e0b', '#fcd34d'],
-    locked: false, // Unlocked by default as requested
+    id: 'ocean-calm',
+    name: 'Ocean Calm',
+    gradient: ['#1a2832', '#2d4050'],
+    circle: ['#7ba8c7', '#b3d4e6'],
+    locked: false,
   },
   {
-    id: 'teal-mist',
-    name: 'Teal Mist',
-    gradient: ['#0f2e2a', '#1a4d45'],
-    circle: ['#14b8a6', '#5eead4'],
-    locked: false, // Unlocked by default as requested
+    id: 'lavender-fields',
+    name: 'Lavender Fields',
+    gradient: ['#281a2e', '#3f2d4a'],
+    circle: ['#a78bba', '#d4c4e0'],
+    locked: false,
   },
 ];
 
