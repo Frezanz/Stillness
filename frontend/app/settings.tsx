@@ -263,6 +263,12 @@ const styles = StyleSheet.create({
     color: '#ffffff60',
     marginBottom: 16,
   },
+  infoText: {
+    fontSize: 12,
+    color: '#ffffff80',
+    marginBottom: 12,
+    fontStyle: 'italic',
+  },
   themesContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
