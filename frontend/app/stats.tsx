@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
+import Text from '../components/Text';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useApp } from '../context/AppContext';
